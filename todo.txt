@@ -1,49 +1,236 @@
-Hauptmenue:
-    Spielstarten:
-        Wählen ob Variante "Blitz-Drecksau"
-        Optionen um Anzahl Spieler auszuwählen
+Schreibt in die [ ] a, m oder g und wenn die aufgabe abgeschlossen ist ein x
 
-Karten:
-    Alle Spielkarten erstellen (extends Card)
-        Matschkarte (ein eigenes Schwein Schmutzig machen) 21
-        Regenkarte (Alle Schweine welche nicht untereinem Stall sind sauber machen auch die eigenen) 4
-        Stallkarte (Ein Schwein in den stall stellen schützt vor Regen) 9
-        Blitzkarte (Einen Stall abbrennen lassen) 4
-        Blitzableiterkarte (Dieser Stall kann nicht abgefackelt werden) 4
-        Bauer-schrubbt-die-Sau-Karte (Ein einziges Schwein wird wieder sauber auf wenn es im Stall ist) 8
-        Bauer-ärgere-dich-Karte (Schwein ist im Stall bauer kann das Schwein nicht putzen) 4
-            Wenn ein Schwein eine Stallkarte, eine Blitzableiterkarte und eine Bauer-ärgere-dich-Karte hat kann das Schwein nicht mehr angegrifen werden.
+ganz unten ist die Erweiterungsidee von Manuel, ich finde die gut. (g)
 
-Pig:
-    Pigkarte welche vor dem Spieler liegen
-    2 Spieler jeder 5 pig
-    3 Spieler jeder 4 pig
-    4 Spieler jeder 3 pig
+Wenn ich etwas vergessen habe fügt das bitte noch am richtigen ort ein.
 
-    Zwei Zustände sauber und schmuzig
-    auf Sauber kann nicht geputzt werden. Schmuzig kann keine Matschkarte genutzt werden.
+========================
+        DRECKSAU
+      TODO-LISTE
+========================
 
-Logik:
-    Jeder Spielr bekommt 3 karten (verdeckt) rest auf den Nachziehstapel
+[ ] Hauptmenü
+    [ ] Spiel starten
+    [ ] Variante „Blitz-Drecksau“ auswählen
+    [ ] Anzahl Spieler auswählen (2–4)
+    [ ] Spielernamen eingeben
 
-    Spielzug eines Spielers:
-     Option a:
-        Spieler legt eine Karte auf eines seiner Schweine (Stall , Blitzableiter, Bauer-ärgere-dich)
+========================
+KARTENSYSTEM
+========================
 
-     Option b:
-        Spieler legt eine Karte auf den Ablagestapel (Matsch, Regen, Blitz, Bauer-schrubbt-die-Sau)
-        Spielr führt entsprechende Aktion aus.
+[ ] Basisklasse erstellen
+    [ ] Card-Klasse erstellen
+    [ ] Alle Spielkarten erweitern mit "extends Card"
 
-     Nach dem Spielzug zieht der Spieler wieder eine Karte vom Nachzie Stapel damit er wieder 3 Stück hat.
+[ ] Spielkarten erstellen
+    [ ] Matschkarte (21)
+        -> Macht ein eigenes Schwein schmutzig
 
-     Wenn ein Spieler nicht Spielen kann (bspw. Drei Blitzkarten aber kein eigener Stall) muss der Spieler alle Karten ablegen (den Mitspielern zeigen) und drei neue aufnehmen. Anschliesen ist Sofort der nächste Spieler an der Rehie
+    [ ] Regenkarte (4)
+        -> Macht alle Schweine ohne Stall sauber
 
-Eigene Karte eintwickeln:
-    Eine eigen Karte/Funktion entwickeln und im Projekt hinzufügen.
+    [ ] Stallkarte (9)
+        -> Schützt Schwein vor Regen
+
+    [ ] Blitzkarte (4)
+        -> Zerstört einen Stall
+
+    [ ] Blitzableiterkarte (4)
+        -> Stall kann nicht abgebrannt werden
+
+    [ ] Bauer-schrubbt-die-Sau-Karte (8)
+        -> Macht ein Schwein wieder sauber
+        -> Funktioniert auch bei Schweinen im Stall
+
+    [ ] Bauer-ärgere-dich-Karte (4)
+        -> Bauer kann Schwein nicht putzen
+
+========================
+SPEZIALREGELN
+========================
+
+[ ] Glückliche Drecksau implementieren
+    Bedingungen:
+        [ ] Stallkarte vorhanden
+        [ ] Blitzableiterkarte vorhanden
+        [ ] Bauer-ärgere-dich-Karte vorhanden
+
+    Ergebnis:
+        -> Schwein kann nicht mehr angegriffen werden
+
+========================
+PIG / SCHWEINE
+========================
+
+[ ] Pig-Klasse erstellen
+
+[ ] Schweine pro Spieler festlegen
+    [ ] 2 Spieler -> 5 Schweine
+    [ ] 3 Spieler -> 4 Schweine
+    [ ] 4 Spieler -> 3 Schweine
+
+[ ] Schweine-Zustände
+    [ ] Sauber
+    [ ] Schmutzig
+
+[ ] Regeln umsetzen
+    [ ] Saubere Schweine können nicht geputzt werden
+    [ ] Schmutzige Schweine können nicht nochmals eingematscht werden
+
+[ ] Erweiterungen pro Schwein
+    [ ] Stall
+    [ ] Blitzableiter
+    [ ] Bauer-ärgere-dich-Schutz
+
+========================
+SPIELER
+========================
+
+[ ] Player-Klasse erstellen
+
+[ ] Spielerinformationen speichern
+    [ ] Spielernamen
+    [ ] Handkarten
+    [ ] Schweine
+
+========================
+HANDKARTEN
+========================
+
+[ ] Spieler hat immer 3 Karten
+
+[ ] Funktionen
+    [ ] Karten anzeigen
+    [ ] Karte auswählen
+    [ ] Karte ziehen
+    [ ] Karte ablegen
+
+========================
+SPIEL-LOGIK
+========================
+
+[ ] Spielstart
+    [ ] Karten mischen
+    [ ] Jeder Spieler erhält 3 Karten
+    [ ] Restliche Karten auf Nachziehstapel
+
+[ ] Spielzug
+    Option A – Karte auf eigenes Schwein legen
+        [ ] Stallkarte
+        [ ] Blitzableiterkarte
+        [ ] Bauer-ärgere-dich-Karte
+
+    Option B – Aktionskarte spielen
+        [ ] Matschkarte
+        [ ] Regenkarte
+        [ ] Blitzkarte
+        [ ] Bauer-schrubbt-die-Sau-Karte
+
+[ ] Nach Spielzug
+    [ ] Karte auf Ablagestapel
+    [ ] Spieler zieht wieder auf 3 Karten nach
+    [ ] Nächster Spieler ist an der Reihe
+
+========================
+SPEZIALFÄLLE
+========================
+
+[ ] Spieler kann nichts spielen
+
+    Beispiel:
+        - Drei Blitzkarten
+        - Kein eigener Stall vorhanden
+
+    Dann:
+        [ ] Spieler zeigt Karten
+        [ ] Alle Karten ablegen
+        [ ] Drei neue Karten ziehen
+        [ ] Zug endet sofort
+
+========================
+DECK-SYSTEM
+========================
+
+[ ] Nachziehstapel
+    [ ] Karten ziehen
+    [ ] Prüfen ob Stapel leer ist
+
+[ ] Ablagestapel
+    [ ] Gespielte Karten ablegen
+
+[ ] Wenn Nachziehstapel leer
+    [ ] Ablagestapel mischen
+    [ ] Neuer Nachziehstapel erstellen
+
+========================
+SIEGBEDINGUNG
+========================
+
+[ ] Prüfen ob alle Schweine schmutzig sind
+[ ] Gewinner anzeigen
+[ ] Spiel beenden
+
+========================
+README.md
+========================
+
+[ ] Spielziel erklären
+[ ] Karten erklären
+[ ] Spielablauf erklären
+[ ] Startanleitung hinzufügen
 
 
+========================
+Erweiterung
+========================
 
+[ ] Feuerkarte erstellen
+    -> Kann ein Haus eines anderen Spielers anzünden
+    -> Es kann immer nur ein Haus gleichzeitig brennen
 
-Spielanleitung Schreibn und in README.md hinzufügen
+[ ] Brennendes Haus System
+    [ ] Status "Brennt" hinzufügen
+    [ ] Speichern welches Haus brennt
 
+[ ] Feuer-Schaden pro Runde
+    -> Immer wenn der betroffene Spieler am Zug ist:
+        [ ] Ein Upgrade entfernen
+            Beispiele:
+                - Blitzableiter
+                - Türen
+
+    [ ] Prüfen ob noch Upgrades vorhanden sind
+
+    [ ] Wenn keine Upgrades mehr vorhanden:
+        -> Haus wird zerstört
+
+========================
+WASSEREIMER-KARTE
+========================
+
+[ ] Wassereimerkarte erstellen
+    -> Kann gespielt werden wenn eigenes Haus brennt
+
+[ ] Funktionen
+    [ ] Feuer löschen
+    [ ] Schaden verhindern
+    [ ] Brennstatus entfernen
+
+========================
+REGENKARTE ERWEITERN
+========================
+
+[ ] Regenkarte löscht zusätzlich Feuer
+
+[ ] Spezialregel:
+    -> Nachdem das Feuer gelöscht wurde,
+       wird trotzdem noch 1x Feuerschaden verursacht
+
+    Beispiel:
+        Haus brennt
+        -> Regenkarte wird gespielt
+        -> Feuer wird gelöscht
+        -> Trotzdem wird noch ein Upgrade entfernt
+        -> Danach endet das Feuer
 
