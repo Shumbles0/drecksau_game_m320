@@ -1,0 +1,42 @@
+Hauptmenue:
+    Spielstarten:
+        Wählen ob Variante "Blitz-Drecksau"
+        Optionen um Anzahl Spieler auszuwählen
+
+Karten:
+    Alle Spielkarten erstellen (extends Card)
+        Matschkarte (ein eigenes Schwein Schmutzig machen) 21
+        Regenkarte (Alle Schweine welche nicht untereinem Stall sind sauber machen auch die eigenen) 4
+        Stallkarte (Ein Schwein in den stall stellen schützt vor Regen) 9
+        Blitzkarte (Einen Stall abbrennen lassen) 4
+        Blitzableiterkarte (Dieser Stall kann nicht abgefackelt werden) 4
+        Bauer-schrubbt-die-Sau-Karte (Ein einziges Schwein wird wieder sauber auf wenn es im Stall ist) 8
+        Bauer-ärgere-dich-Karte (Schwein ist im Stall bauer kann das Schwein nicht putzen) 4
+            Wenn ein Schwein eine Stallkarte, eine Blitzableiterkarte und eine Bauer-ärgere-dich-Karte hat kann das Schwein nicht mehr angegrifen werden.
+
+Pig:
+    Pigkarte welche vor dem Spieler liegen
+    2 Spieler jeder 5 pig
+    3 Spieler jeder 4 pig
+    4 Spieler jeder 3 pig
+
+    Zwei Zustände sauber und schmuzig
+    auf Sauber kann nicht geputzt werden. Schmuzig kann keine Matschkarte genutzt werden.
+
+Logik:
+    Jeder Spielr bekommt 3 karten (verdeckt) rest auf den Nachziehstapel
+
+    Spielzug eines Spielers:
+     Option a:
+        Spieler legt eine Karte auf eines seiner Schweine (Stall , Blitzableiter, Bauer-ärgere-dich)
+
+     Option b:
+        Spieler legt eine Karte auf den Ablagestapel (Matsch, Regen, Blitz, Bauer-schrubbt-die-Sau)
+        Spielr führt entsprechende Aktion aus.
+
+     Nach dem Spielzug zieht der Spieler wieder eine Karte vom Nachzie Stapel damit er wieder 3 Stück hat.
+
+     Wenn ein Spieler nicht Spielen kann (bspw. Drei Blitzkarten aber kein eigener Stall) muss der Spieler alle Karten ablegen (den Mitspielern zeigen) und drei neue aufnehmen. Anschliesen ist Sofort der nächste Spieler an der Rehie
+
+
+
