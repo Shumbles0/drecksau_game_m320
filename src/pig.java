@@ -1,3 +1,3 @@
-public class pig extends card {
+public class pig {
 
 }
