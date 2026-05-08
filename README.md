@@ -8,11 +8,11 @@ Jede Spieler erhält verdeckt 3 Spielerkarten
 
 
 66 Karten:
-	- 12 doppelseitig Schweinekarten
-	- 21 Matchkarten
-	- 4 Regenkarten -> Alle Schweine wieder sauber
-	- 9 Stallkarten -> Schutz 
-	- 4 Blitzkarten -> zerstört Stall
-	- 4 Blitzableiter karten 
-	- 8 Bauer-schrubbt-die-Sau-Karten
-	- 4 Bauer-ärgere-dich-karten -> blockiert den Bauer
+ 12 doppelseitig Schweinekarten
+ 21 Matchkarten
+ 4 Regenkarten -> Alle Schweine wieder sauber
+ 9 Stallkarten -> Schutz 
+ 4 Blitzkarten -> zerstört Stall
+ 4 Blitzableiter karten 
+ 8 Bauer-schrubbt-die-Sau-Karten
+ 4 Bauer-ärgere-dich-karten -> blockiert den Bauer
