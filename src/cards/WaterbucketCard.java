@@ -4,13 +4,13 @@ import game.GameState;
 import model.Pig;
 import model.Player;
 
-public class MudCard extends Card {
+public class WaterbucketCard extends Card {
 
-    public MudCard() {
-        super("Mud");
+    public WaterbucketCard() {
+        super("Waterbucket");
     }
 
-@Override
+    @Override
     public boolean canPlay(GameState state, Player player, Target target) {
         // Mud muss eines deiner eigenen schweine targetten können
         if (!target.hasPlayer() || target.getTargetPlayer() != player) {
@@ -20,14 +20,15 @@ public class MudCard extends Card {
             return false;
         }
 
-        // Target muss sauber sein
+        // Target muss brennen
         Pig pig = player.getPig(target.getTargetPigIndex());
-        return pig.isClean();
+        return pig.getBarn().isBurning();
     }
 
-@Override
+    @Override
     public void applyCard(GameState state, Player player, Target target) {
         Pig pig = player.getPig(target.getTargetPigIndex());
-        pig.makeDirty();
+        pig.getBarn().extinguishFire();
     }
+
 }

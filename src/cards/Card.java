@@ -15,7 +15,7 @@ public abstract class Card {
     public String getName() {
         return name;
     }
-
+//von ki generiert damit über der canplay funktion wenn man über die inputs hovert es anzeigt für was der input gut ist
     /**
      * Checks whether this card can legally be played by the given player
      * with the given target in the current game state.
@@ -28,10 +28,8 @@ public abstract class Card {
      */
     public abstract boolean canPlay(GameState state, Player player, Target target);
 
-    /**
-     * Applies this card's effect to the game state. Should only be called
-     * after canPlay() has returned true.
-     */
+    //nutzt den effekt der karte tatsächlich im game sollte nur benutz werden anchdem canPlay true ist
+
     public abstract void applyCard(GameState state, Player player, Target target);
 
     @Override

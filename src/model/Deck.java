@@ -1,8 +1,7 @@
 package model;
 
-import cards.Card;
-import cards.MudCard;
-// import the other card classes here once they exist
+import cards.*;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +33,7 @@ public class Deck {
             reshuffleDiscardIntoDraw();
         }
         if (drawPile.isEmpty()) {
-            throw new IllegalStateException("No cards left in deck or discard");
+            throw new IllegalStateException("keine Karten mehr verfügbar");
         }
         return drawPile.remove(drawPile.size() - 1);
     }
@@ -58,19 +57,21 @@ public class Deck {
     }
 
     /**
-     * Builds the standard Drecksau deck with all action cards and shuffles it.
-     * Verify the exact card counts against your physical rulebook.
+     * Entscheidet was alles in das action karten deck kommt.
+     * Kann man ohne probleme verändern wenn etwas unbalanced ist.
      */
     public static Deck createStandardDeck(Random random) {
         Deck deck = new Deck(random);
 
         for (int i = 0; i < 21; i++) deck.addCard(new MudCard());
-        // for (int i = 0; i < 4; i++) deck.addCard(new RainCard());
-        // for (int i = 0; i < 9; i++) deck.addCard(new BarnCard());
-        // for (int i = 0; i < 6; i++) deck.addCard(new BarnDoorCard());
-        // for (int i = 0; i < 4; i++) deck.addCard(new LightningRodCard());
-        // for (int i = 0; i < 4; i++) deck.addCard(new LightningCard());
-        // for (int i = 0; i < 8; i++) deck.addCard(new FarmerCard());
+        for (int i = 0; i < 4; i++) deck.addCard(new RainCard());
+        for (int i = 0; i < 9; i++) deck.addCard(new BarnCard());
+        for (int i = 0; i < 6; i++) deck.addCard(new BarnDoorCard());
+        for (int i = 0; i < 4; i++) deck.addCard(new TeslaCard());
+        for (int i = 0; i < 4; i++) deck.addCard(new LightningCard());
+        for (int i = 0; i < 8; i++) deck.addCard(new FarmerCard());
+        for (int i = 0; i < 4; i++) deck.addCard(new FireCard());
+        for (int i = 0; i < 8; i++) deck.addCard(new WaterbucketCard());
 
         deck.shuffle();
         return deck;
