@@ -38,5 +38,12 @@ Logik:
 
      Wenn ein Spieler nicht Spielen kann (bspw. Drei Blitzkarten aber kein eigener Stall) muss der Spieler alle Karten ablegen (den Mitspielern zeigen) und drei neue aufnehmen. Anschliesen ist Sofort der nächste Spieler an der Rehie
 
+Eigene Karte eintwickeln:
+    Eine eigen Karte/Funktion entwickeln und im Projekt hinzufügen.
+
+
+
+
+Spielanleitung Schreibn und in README.md hinzufügen
 
 
