@@ -13,6 +13,7 @@ public class Deck {
     private final List<Card> drawPile;
     private final List<Card> discardPile;
     private final Random random;
+    boolean extension; //
 
     public Deck(Random random) {
         this.drawPile = new ArrayList<>();
@@ -33,7 +34,7 @@ public class Deck {
             reshuffleDiscardIntoDraw();
         }
         if (drawPile.isEmpty()) {
-            throw new IllegalStateException("keine Karten mehr verfügbar");
+            throw new IllegalStateException("keine Karten mehr verfügbar"); // Für was ist die Exception? Wird die nicht beim reshuffle behandelt?
         }
         return drawPile.remove(drawPile.size() - 1);
     }
@@ -70,8 +71,11 @@ public class Deck {
         for (int i = 0; i < 4; i++) deck.addCard(new TeslaCard());
         for (int i = 0; i < 4; i++) deck.addCard(new LightningCard());
         for (int i = 0; i < 8; i++) deck.addCard(new FarmerCard());
-        for (int i = 0; i < 4; i++) deck.addCard(new FireCard());
-        for (int i = 0; i < 8; i++) deck.addCard(new WaterbucketCard());
+
+        if (deck.extension == true) {
+            for (int i = 0; i < 4; i++) deck.addCard(new FireCard());
+            for (int i = 0; i < 8; i++) deck.addCard(new WaterbucketCard());
+        }
 
         deck.shuffle();
         return deck;

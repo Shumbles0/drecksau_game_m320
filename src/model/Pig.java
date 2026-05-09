@@ -1,4 +1,5 @@
 package model;
+
 public class Pig {
 
     private boolean dirty;

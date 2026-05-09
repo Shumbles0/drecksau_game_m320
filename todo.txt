@@ -10,10 +10,10 @@ Wenn ich etwas vergessen habe fügt das bitte noch am richtigen ort ein.
 ========================
 
 [ ] Hauptmenü
-    [ ] Spiel starten
+    [x] Spiel starten
     [ ] Variante „Blitz-Drecksau“ auswählen
-    [ ] Anzahl Spieler auswählen (2–4)
-    [ ] Spielernamen eingeben
+    [x] Anzahl Spieler auswählen (2–4)
+    [x] Spielernamen eingeben
 
 ========================
 KARTENSYSTEM
@@ -71,12 +71,12 @@ PIG / SCHWEINE
     [ ] 4 Spieler -> 3 Schweine
 
 [x] Schweine-Zustände
-    [ ] Sauber
-    [ ] Schmutzig
+    [x] Sauber
+    [x] Schmutzig
 
 [x] Regeln umsetzen
-    [ ] Saubere Schweine können nicht geputzt werden
-    [ ] Schmutzige Schweine können nicht nochmals eingematscht werden
+    [x] Saubere Schweine können nicht geputzt werden
+    [x] Schmutzige Schweine können nicht nochmals eingematscht werden
 
 [x] Erweiterungen pro Schwein
     [x] Stall
@@ -90,9 +90,9 @@ SPIELER
 [x] Player-Klasse erstellen
 
 [X] Spielerinformationen speichern (wird von der klasse GameState übernommen)
-    [ ] Spielernamen
-    [ ] Handkarten
-    [ ] Schweine
+    [x] Spielernamen
+    [x] Handkarten
+    [x] Schweine
 
 ========================
 HANDKARTEN
@@ -111,9 +111,9 @@ SPIEL-LOGIK
 ========================
 
 [ ] Spielstart
-    [ ] Karten mischen
-    [ ] Jeder Spieler erhält 3 Karten
-    [ ] Restliche Karten auf Nachziehstapel
+    [x] Karten mischen
+    [x] Jeder Spieler erhält 3 Karten
+    [x] Restliche Karten auf Nachziehstapel
 
 [ ] Spielzug
     Option A – Karte auf eigenes Schwein legen
