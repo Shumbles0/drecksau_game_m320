@@ -11,7 +11,6 @@ public class FireCard extends Card {
     }
 
 
-
     @Override
     public boolean canPlay(GameState state, Player player, Target target) {
         // muss ein anderen spieler targetten
@@ -34,7 +33,7 @@ public class FireCard extends Card {
 
     @Override
     public void applyCard(GameState state, Player player, Target target) {
-        Pig pig = player.getPig(target.getTargetPigIndex());
+        Pig pig = target.getTargetPlayer().getPig(target.getTargetPigIndex());
         pig.getBarn().commitArson();
     }
 }
