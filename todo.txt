@@ -19,35 +19,35 @@ Wenn ich etwas vergessen habe fügt das bitte noch am richtigen ort ein.
 KARTENSYSTEM
 ========================
 
-[ ] Basisklasse erstellen
-    [ ] Card-Klasse erstellen
-    [ ] Alle Spielkarten erweitern mit "extends Card"
+[x] Basisklasse erstellen
+    [x] Card-Klasse erstellen
+    [x] Alle Spielkarten erweitern mit "extends Card"
 
-[ ] Spielkarten erstellen
-    [ ] Matschkarte (21)
+[x] Spielkarten erstellen
+    [x] Matschkarte (21)
         -> Macht ein eigenes Schwein schmutzig
 
-    [ ] Regenkarte (4)
+    [x] Regenkarte (4)
         -> Macht alle Schweine ohne Stall sauber
 
-    [ ] Stallkarte (9)
+    [x] Stallkarte (9)
         -> Schützt Schwein vor Regen
 
-    [ ] Blitzkarte (4)
+    [x] Blitzkarte (4)
         -> Zerstört einen Stall
 
-    [ ] Blitzableiterkarte (4)
+    [x] Blitzableiterkarte (4)
         -> Stall kann nicht abgebrannt werden
 
-    [ ] Bauer-schrubbt-die-Sau-Karte (8)
+    [x] Bauer-schrubbt-die-Sau-Karte (8)
         -> Macht ein Schwein wieder sauber
         -> Funktioniert auch bei Schweinen im Stall
 
-    [ ] Bauer-ärgere-dich-Karte (4)
+    [x] Bauer-ärgere-dich-Karte (4)
         -> Bauer kann Schwein nicht putzen
 
 ========================
-SPEZIALREGELN
+SPEZIALREGELN (ungeltend mit der addition von der feuer karte)
 ========================
 
 [ ] Glückliche Drecksau implementieren
@@ -63,33 +63,33 @@ SPEZIALREGELN
 PIG / SCHWEINE
 ========================
 
-[ ] Pig-Klasse erstellen
+[x] Pig-Klasse erstellen
 
 [ ] Schweine pro Spieler festlegen
     [ ] 2 Spieler -> 5 Schweine
     [ ] 3 Spieler -> 4 Schweine
     [ ] 4 Spieler -> 3 Schweine
 
-[ ] Schweine-Zustände
+[x] Schweine-Zustände
     [ ] Sauber
     [ ] Schmutzig
 
-[ ] Regeln umsetzen
+[x] Regeln umsetzen
     [ ] Saubere Schweine können nicht geputzt werden
     [ ] Schmutzige Schweine können nicht nochmals eingematscht werden
 
-[ ] Erweiterungen pro Schwein
-    [ ] Stall
-    [ ] Blitzableiter
-    [ ] Bauer-ärgere-dich-Schutz
+[x] Erweiterungen pro Schwein
+    [x] Stall
+    [x] Blitzableiter
+    [x] Bauer-ärgere-dich-Schutz
 
 ========================
 SPIELER
 ========================
 
-[ ] Player-Klasse erstellen
+[x] Player-Klasse erstellen
 
-[ ] Spielerinformationen speichern
+[X] Spielerinformationen speichern (wird von der klasse GameState übernommen)
     [ ] Spielernamen
     [ ] Handkarten
     [ ] Schweine
@@ -128,7 +128,7 @@ SPIEL-LOGIK
         [ ] Bauer-schrubbt-die-Sau-Karte
 
 [ ] Nach Spielzug
-    [ ] Karte auf Ablagestapel
+    [x] Karte auf Ablagestapel  (in der applyCard methode definiert)
     [ ] Spieler zieht wieder auf 3 Karten nach
     [ ] Nächster Spieler ist an der Reihe
 
@@ -152,14 +152,14 @@ SPEZIALFÄLLE
 DECK-SYSTEM
 ========================
 
-[ ] Nachziehstapel
-    [ ] Karten ziehen
-    [ ] Prüfen ob Stapel leer ist
+[ x] Nachziehstapel
+    [x] Karten ziehen (draw methode)
+    [y] Prüfen ob Stapel leer ist
 
-[ ] Ablagestapel
-    [ ] Gespielte Karten ablegen
+[ x] Ablagestapel
+    [x] Gespielte Karten ablegen
 
-[ ] Wenn Nachziehstapel leer
+[] Wenn Nachziehstapel leer 
     [ ] Ablagestapel mischen
     [ ] Neuer Nachziehstapel erstellen
 
@@ -185,11 +185,11 @@ README.md
 Erweiterung
 ========================
 
-[ ] Feuerkarte erstellen
+[x] Feuerkarte erstellen
     -> Kann ein Haus eines anderen Spielers anzünden
     -> Es kann immer nur ein Haus gleichzeitig brennen
 
-[ ] Brennendes Haus System
+[x] Brennendes Haus System
     [ ] Status "Brennt" hinzufügen
     [ ] Speichern welches Haus brennt
 
@@ -200,30 +200,30 @@ Erweiterung
                 - Blitzableiter
                 - Türen
 
-    [ ] Prüfen ob noch Upgrades vorhanden sind
+    [x] Prüfen ob noch Upgrades vorhanden sind
 
-    [ ] Wenn keine Upgrades mehr vorhanden:
+    [x] Wenn keine Upgrades mehr vorhanden:
         -> Haus wird zerstört
 
 ========================
 WASSEREIMER-KARTE
 ========================
 
-[ ] Wassereimerkarte erstellen
+[x] Wassereimerkarte erstellen
     -> Kann gespielt werden wenn eigenes Haus brennt
 
-[ ] Funktionen
-    [ ] Feuer löschen
-    [ ] Schaden verhindern
-    [ ] Brennstatus entfernen
+[x] Funktionen
+    [x] Feuer löschen
+    [x] Schaden verhindern
+    [x] Brennstatus entfernen
 
 ========================
 REGENKARTE ERWEITERN
 ========================
 
-[ ] Regenkarte löscht zusätzlich Feuer
+[x] Regenkarte löscht zusätzlich Feuer
 
-[ ] Spezialregel:
+[x] Spezialregel:
     -> Nachdem das Feuer gelöscht wurde,
        wird trotzdem noch 1x Feuerschaden verursacht
 
