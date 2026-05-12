@@ -10,16 +10,37 @@ public class Pig {
         this.barn = null;
     }
 
-    public boolean isDirty()  { return dirty; }
-    public boolean isClean()  { return !dirty; }
-    public boolean isInBarn() { return barn != null; }
-    public Barn getBarn()     { return barn; }
+    public boolean isDirty() {
+        return dirty;
+    }
 
-    public void makeDirty() { this.dirty = true; }
-    public void makeClean() { this.dirty = false; }
+    public boolean isClean() {
+        return !dirty;
+    }
 
-    public void buildBarn()   { this.barn = new Barn(); }
-    public void destroyBarn() { this.barn = null; }
+    public boolean isInBarn() {
+        return barn != null;
+    }
+
+    public Barn getBarn() {
+        return barn;
+    }
+
+    public void makeDirty() {
+        this.dirty = true;
+    }
+
+    public void makeClean() {
+        this.dirty = false;
+    }
+
+    public void buildBarn() {
+        this.barn = new Barn();
+    }
+
+    public void destroyBarn() {
+        this.barn = null;
+    }
 
     public boolean isProtectedFromRain() {
         return barn != null;

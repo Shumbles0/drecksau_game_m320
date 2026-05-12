@@ -1,9 +1,13 @@
+import cards.Card;
+import cards.FarmerCard;
+import cards.TeslaCard;
 import game.GameState;
 import model.Deck;
 import model.Player;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -50,6 +54,32 @@ public class Main {
 
                     GameState state = new GameState(players, deck);
 
+
+                    while (!state.isGameOver()) {
+                        Player current = state.getCurrentPlayer();
+                        System.out.println(current.getNickname() + " ist dran.");
+
+                        System.out.println("Bitte wähle die Karte welche du Spielen möchtest.");
+
+                        List<Card> hand = current.getHand();
+                        for (int i = 0; i < hand.size(); i++) {
+                            System.out.println(i + 1 + " - " + hand.get(i).getName());
+                        }
+
+                        int choice = sc.nextInt() - 1;
+                        sc.nextLine();
+
+                        Card selectedCard = hand.get(choice);
+
+                        state.checkWinCondition();
+                        if (state.isGameOver()) {
+                            System.out.println(state.getWinner().getNickname() + " hat gewonnen!");
+                        } else {
+                            state.advanceTurn();
+                        }
+                    }
+
+
                     break;
                 case 0:
                     System.out.println("Spiel wird Beendet");
@@ -66,6 +96,7 @@ public class Main {
 
 
     static void createPlayers(ArrayList<Player> players, Scanner sc, int count, int pigCount) {
+        sc.nextLine();
         for (int i = 0; i < count; i++) {
             System.out.println("Bitte Name des " + (i + 1) + ". Spielers eingeben");
             players.add(new Player(sc.nextLine(), pigCount));

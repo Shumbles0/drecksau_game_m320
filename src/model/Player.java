@@ -1,6 +1,7 @@
 package model;
 
 import cards.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +21,9 @@ public class Player {
         this.hand = new ArrayList<>();
     }
 
-    public String getNickname() { return nickname; }
+    public String getNickname() {
+        return nickname;
+    }
 
     public List<Pig> getPigs() {
         return Collections.unmodifiableList(pigs);
