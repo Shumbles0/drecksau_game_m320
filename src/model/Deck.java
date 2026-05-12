@@ -36,7 +36,7 @@ public class Deck {
         if (drawPile.isEmpty()) {
             throw new IllegalStateException("keine Karten mehr verfügbar");
         }
-        return drawPile.remove(drawPile.size() - 1);
+        return drawPile.removeLast();
     }
 
     public void discard(Card card) {
