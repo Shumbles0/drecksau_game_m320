@@ -1,6 +1,4 @@
-import cards.Card;
-import cards.FarmerCard;
-import cards.TeslaCard;
+import cards.*;
 import game.GameState;
 import model.Deck;
 import model.Player;
