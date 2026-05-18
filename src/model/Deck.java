@@ -58,8 +58,8 @@ public class Deck {
     }
 
     /**
-     * Entscheidet was alles in das action karten deck kommt.
-     * Kann man ohne probleme verändern wenn etwas unbalanced ist.
+     * Entscheidet, was alles in das action karten deck kommt.
+     * Kann man ohne probleme verändern, wenn etwas unbalanced ist.
      */
     public static Deck createStandardDeck(Random random) {
         Deck deck = new Deck(random);

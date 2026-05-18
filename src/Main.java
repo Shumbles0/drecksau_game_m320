@@ -1,6 +1,7 @@
 import cards.*;
 import game.GameState;
 import model.Deck;
+import model.Pig;
 import model.Player;
 
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+    static ArrayList<Player> players = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -26,26 +29,21 @@ public class Main {
             try {
                 menuChoice = Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("Ungültige Eingabe. Bitte eine Zahl eingeben.");
+                System.out.println("Ungültige Eingabe. Bitte eine gültige Zahl eingeben.");
             }
 
-
             switch (menuChoice) {
-
                 case 1:
                     Deck.extension = false;
                     startGame(sc);
                     break;
-
                 case 2:
                     Deck.extension = true;
                     startGame(sc);
                     break;
-
                 case 0:
                     System.out.println("Spiel wird beendet");
                     return;
-
                 default:
                     System.out.println("Ungültige Auswahl");
             }
@@ -53,8 +51,6 @@ public class Main {
     }
 
     static void startGame(Scanner sc) {
-
-        ArrayList<Player> players = new ArrayList<>();
 
         System.out.println("Bitte Spieler Anzahl eingeben (2-4)");
 
@@ -99,7 +95,6 @@ public class Main {
             Player current = state.getCurrentPlayer();
 
             System.out.println(current.getNickname() + " ist dran.");
-
             System.out.println("Bitte wähle die Karte welche du spielen möchtest.");
 
             List<Card> hand = current.getHand();
@@ -111,11 +106,8 @@ public class Main {
             int choice;
 
             while (true) {
-
                 try {
-
                     System.out.print("Auswahl: ");
-
                     choice = sc.nextInt() - 1;
                     sc.nextLine();
 
@@ -123,9 +115,7 @@ public class Main {
                         System.out.println("Ungültige Kartenauswahl!");
                         continue;
                     }
-
                     break;
-
                 } catch (Exception e) {
                     System.out.println("Bitte gib eine Zahl ein!");
                     sc.nextLine();
@@ -134,9 +124,88 @@ public class Main {
 
             Card selectedCard = hand.get(choice);
 
-            // Karte spielen
+            // Target bestimmen
+            Target target = Target.NONE;
+
+            // Prüfen ob die Karte ein Target braucht
+            if (!selectedCard.canPlay(state, current, Target.NONE)) {
+
+                // Testen ob die Karte sich selbst targetten kann
+                List<Player> targets = new ArrayList<>();
+
+                boolean canTargetSelf = false;
+                for (int i = 0; i < current.getPigs().size(); i++) {
+                    if (selectedCard.canPlay(state, current, Target.ofPig(current, i))) {
+                        canTargetSelf = true;
+                        break;
+                    }
+                }
+
+                if (canTargetSelf) targets.add(current);
+                targets.addAll(state.getOpponents(current));
+
+                System.out.println("Wähle einen Zielspieler:");
+                for (int i = 0; i < targets.size(); i++) {
+                    System.out.println((i + 1) + ": " + targets.get(i).getNickname());
+                }
+
+                Player targetPlayer;
+                while (true) {
+                    try {
+                        System.out.print("Auswahl: ");
+                        int playerChoice = sc.nextInt() - 1;
+                        sc.nextLine();
+                        if (playerChoice < 0 || playerChoice >= targets.size()) {
+                            System.out.println("Ungültige Auswahl!");
+                            continue;
+                        }
+                        targetPlayer = targets.get(playerChoice);
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Bitte eine Zahl eingeben!");
+                        sc.nextLine();
+                    }
+                }
+
+                // Schwein auswählen
+                System.out.println("Wähle ein Schwein von " + targetPlayer.getNickname() + ":");
+                for (int i = 0; i < targetPlayer.getPigs().size(); i++) {
+                    Pig pig = targetPlayer.getPig(i);
+                    String status = pig.isDirty() ? "dreckig" : "sauber";
+                    String barn = pig.isInBarn() ? ", in Scheune" : "";
+                    System.out.println((i + 1) + ": Schwein " + (i + 1) + " (" + status + barn + ")");
+                }
+
+                while (true) {
+                    try {
+                        System.out.print("Schwein auswählen: ");
+                        int pigChoice = sc.nextInt() - 1;
+                        sc.nextLine();
+                        if (pigChoice < 0 || pigChoice >= targetPlayer.getPigs().size()) {
+                            System.out.println("Ungültige Auswahl!");
+                            continue;
+                        }
+                        target = Target.ofPig(targetPlayer, pigChoice);
+                        if (!selectedCard.canPlay(state, current, target)) {
+                            System.out.println("Diese Karte kann nicht auf dieses Schwein gespielt werden!");
+                            continue;
+                        }
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Bitte eine Zahl eingeben!");
+                        sc.nextLine();
+                    }
+                }
+            }
+
+            // Karte anwenden
+            selectedCard.applyCard(state, current, target);
+            current.removeCard(selectedCard);
+            current.addCard(state.getDeck().draw());
+
             System.out.println(selectedCard.getName() + " wurde gespielt");
 
+            // Gewinnbedingung prüfen NACH dem Spielen der Karte
             state.checkWinCondition();
 
             if (state.isGameOver()) {
@@ -152,9 +221,7 @@ public class Main {
         sc.nextLine();
 
         for (int i = 0; i < count; i++) {
-
             System.out.println("Bitte Name des " + (i + 1) + ". Spielers eingeben");
-
             players.add(new Player(sc.nextLine(), pigCount));
         }
     }
