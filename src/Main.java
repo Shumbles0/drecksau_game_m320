@@ -124,79 +124,45 @@ public class Main {
 
             Card selectedCard = hand.get(choice);
 
-            //TODO Target funktion fixen (nur ein target player wählen wenn benötigt)
-            // Target bestimmen
-            Target target = Target.NONE;
+            boolean isTargetOwnPig = false;
+            for (int i = 0; i < current.getPigs().size(); i++) {
+                if (selectedCard.canPlay(state, current, Target.ofPig(current, i))) {
+                    isTargetOwnPig = true;
+                    break;
+                }
+            }
 
-            // Prüfen ob die Karte ein Target braucht9
-            if (!selectedCard.canPlay(state, current, Target.NONE)) {
+            boolean isTargetOpponent = false;
+            for (Player gegner : state.getOpponents(current)) {
+                for (int i = 0; i < gegner.getPigs().size(); i++) {
+                    if (selectedCard.canPlay(state, current, Target.ofPig(gegner, i))) {
+                        isTargetOpponent = true;
+                        break;
+                    }
+                }
+            }
 
-                // Testen ob die Karte sich selbst targetten kann
-                List<Player> targets = new ArrayList<>();
 
-                boolean canTargetSelf = false;
+            Target target = null;
+            if (isTargetOwnPig) {
+
                 for (int i = 0; i < current.getPigs().size(); i++) {
-                    if (selectedCard.canPlay(state, current, Target.ofPig(current, i))) {
-                        canTargetSelf = true;
-                        break;
-                    }
+                    System.out.println(i + 1 + ": " + current.getPig(i).toString());
                 }
+                target = Target.ofPig(current, sc.nextInt() - 1);
 
-                if (canTargetSelf) targets.add(current);
-                targets.addAll(state.getOpponents(current));
+            } else if (isTargetOpponent) {
 
-                System.out.println("Wähle einen Zielspieler:");
-                for (int i = 0; i < targets.size(); i++) {
-                    System.out.println((i + 1) + ": " + targets.get(i).getNickname());
+                for (int i = 0; i < state.getOpponents(current).size(); i++) {
+                    System.out.println(i + 1 + ": " + state.getOpponents(current).get(i).getNickname());
                 }
+                Player targetPlayer = state.getOpponents(current).get(sc.nextInt() - 1);
 
-                Player targetPlayer;
-                while (true) {
-                    try {
-                        System.out.print("Auswahl: ");
-                        int playerChoice = sc.nextInt() - 1;
-                        sc.nextLine();
-                        if (playerChoice < 0 || playerChoice >= targets.size()) {
-                            System.out.println("Ungültige Auswahl!");
-                            continue;
-                        }
-                        targetPlayer = targets.get(playerChoice);
-                        break;
-                    } catch (Exception e) {
-                        System.out.println("Bitte eine Zahl eingeben!");
-                        sc.nextLine();
-                    }
-                }
+                for (int j = 0; j < targetPlayer.getPigs().size(); j++) {
+                    System.out.println(j + 1 + ": " + targetPlayer.getPig(j).toString());
 
-                // Schwein auswählen
-                System.out.println("Wähle ein Schwein von " + targetPlayer.getNickname() + ":");
-                for (int i = 0; i < targetPlayer.getPigs().size(); i++) {
-                    Pig pig = targetPlayer.getPig(i);
-                    String status = pig.isDirty() ? "dreckig" : "sauber";
-                    String barn = pig.isInBarn() ? ", in Scheune" : "";
-                    System.out.println((i + 1) + ": Schwein " + (i + 1) + " (" + status + barn + ")");
                 }
-
-                while (true) {
-                    try {
-                        System.out.print("Schwein auswählen: ");
-                        int pigChoice = sc.nextInt() - 1;
-                        sc.nextLine();
-                        if (pigChoice < 0 || pigChoice >= targetPlayer.getPigs().size()) {
-                            System.out.println("Ungültige Auswahl!");
-                            continue;
-                        }
-                        target = Target.ofPig(targetPlayer, pigChoice);
-                        if (!selectedCard.canPlay(state, current, target)) {
-                            System.out.println("Diese Karte kann nicht auf dieses Schwein gespielt werden!");
-                            continue;
-                        }
-                        break;
-                    } catch (Exception e) {
-                        System.out.println("Bitte eine Zahl eingeben!");
-                        sc.nextLine();
-                    }
-                }
+                target = Target.ofPig(targetPlayer, sc.nextInt() - 1);
             }
 
             // Karte anwenden
