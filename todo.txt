@@ -9,9 +9,9 @@ Wenn ich etwas vergessen habe fügt das bitte noch am richtigen ort ein.
       TODO-LISTE
 ========================
 
-[ ] Hauptmenü
+[x] Hauptmenü
     [x] Spiel starten
-    [ ] Variante „Blitz-Drecksau“ auswählen
+    [x] Variante
     [x] Anzahl Spieler auswählen (2–4)
     [x] Spielernamen eingeben
 
@@ -65,10 +65,10 @@ PIG / SCHWEINE
 
 [x] Pig-Klasse erstellen
 
-[ ] Schweine pro Spieler festlegen
-    [ ] 2 Spieler -> 5 Schweine
-    [ ] 3 Spieler -> 4 Schweine
-    [ ] 4 Spieler -> 3 Schweine
+[x] Schweine pro Spieler festlegen
+    [x] 2 Spieler -> 5 Schweine
+    [x] 3 Spieler -> 4 Schweine
+    [x] 4 Spieler -> 3 Schweine
 
 [x] Schweine-Zustände
     [x] Sauber
@@ -98,9 +98,9 @@ SPIELER
 HANDKARTEN
 ========================
 
-[ ] Spieler hat immer 3 Karten
+[x] Spieler hat immer 3 Karten
 
-[ ] Funktionen
+[g] Funktionen
     [ ] Karten anzeigen
     [ ] Karte auswählen
     [ ] Karte ziehen
@@ -110,7 +110,7 @@ HANDKARTEN
 SPIEL-LOGIK
 ========================
 
-[ ] Spielstart
+[x] Spielstart
     [x] Karten mischen
     [x] Jeder Spieler erhält 3 Karten
     [x] Restliche Karten auf Nachziehstapel
@@ -120,12 +120,14 @@ SPIEL-LOGIK
         [ ] Stallkarte
         [ ] Blitzableiterkarte
         [ ] Bauer-ärgere-dich-Karte
+        [ ] Waterbucket
 
     Option B – Aktionskarte spielen
         [ ] Matschkarte
         [ ] Regenkarte
         [ ] Blitzkarte
         [ ] Bauer-schrubbt-die-Sau-Karte
+        [ ] Feuerkarte
 
 [ ] Nach Spielzug
     [x] Karte auf Ablagestapel  (in der applyCard methode definiert)
@@ -152,11 +154,11 @@ SPEZIALFÄLLE
 DECK-SYSTEM
 ========================
 
-[ x] Nachziehstapel
+[x] Nachziehstapel
     [x] Karten ziehen (draw methode)
     [y] Prüfen ob Stapel leer ist
 
-[ x] Ablagestapel
+[x] Ablagestapel
     [x] Gespielte Karten ablegen
 
 [] Wenn Nachziehstapel leer 
@@ -167,8 +169,8 @@ DECK-SYSTEM
 SIEGBEDINGUNG
 ========================
 
-[ ] Prüfen ob alle Schweine schmutzig sind
-[ ] Gewinner anzeigen
+[x] Prüfen ob alle Schweine schmutzig sind
+[x] Gewinner anzeigen
 [ ] Spiel beenden
 
 ========================
