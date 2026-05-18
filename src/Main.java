@@ -124,10 +124,11 @@ public class Main {
 
             Card selectedCard = hand.get(choice);
 
+            //TODO Target funktion fixen (nur ein target player wählen wenn benötigt)
             // Target bestimmen
             Target target = Target.NONE;
 
-            // Prüfen ob die Karte ein Target braucht
+            // Prüfen ob die Karte ein Target braucht9
             if (!selectedCard.canPlay(state, current, Target.NONE)) {
 
                 // Testen ob die Karte sich selbst targetten kann
